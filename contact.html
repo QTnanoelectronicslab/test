@@ -294,8 +294,8 @@
                 return response.json();
             })
             .then(data => {
-                console.log(data);
-                document.getElementById("#ifr_Map").src = data.adress.zh;
+                console.log(data.adress.zh);
+                document.getElementById("ifr_Map").src = data.adress.zh;
             })
             .catch(error => {
                 console.error('There has been a problem with your fetch operation:', error);
