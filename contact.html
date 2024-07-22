@@ -286,7 +286,7 @@
     <script src="js/main.js"></script>
     <script>
         $(document).ready(function () {
-            fetch('./data/map.json')
+            fetch('./data/adress.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -294,7 +294,7 @@
                 return response.json();
             })
             .then(data => {
-                document.getElementById("ifr_Map").src = data.adress.zh;
+                document.getElementById("ifr_Map").src = data.zh;
             })
             .catch(error => {
                 console.error('There has been a problem with your fetch operation:', error);
