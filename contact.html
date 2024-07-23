@@ -129,8 +129,8 @@
                             <i class="fa fa-map-marker-alt text-primary"></i>
                         </div>
                         <div class="ms-4">
-                            <p class="mb-2">Address</p>
-                            <h5 class="mb-0">123 Street, New York, USA</h5>
+                            <p class="mb-2" data-key="address_label">Address</p>
+                            <h5 class="mb-0" data-key="address_value">123 Street, New York, USA</h5>
                         </div>
                     </div>
                 </div>
@@ -140,8 +140,8 @@
                             <i class="fa fa-phone-alt text-primary"></i>
                         </div>
                         <div class="ms-4">
-                            <p class="mb-2">Call Us Now</p>
-                            <h5 class="mb-0">+012 345 6789</h5>
+                            <p class="mb-2" data-key="call_us_label">Call Us Now</p>
+                            <h5 class="mb-0" data-key="call_us_value">+012 345 6789</h5>
                         </div>
                     </div>
                 </div>
@@ -151,8 +151,8 @@
                             <i class="fa fa-envelope-open text-primary"></i>
                         </div>
                         <div class="ms-4">
-                            <p class="mb-2">Mail Us Now</p>
-                            <h5 class="mb-0"><a href="mailto:support@yourmail.com">support@yourmail.com</a></h5>
+                            <p class="mb-2" data-key="mail_us_label">Mail Us Now</p>
+                            <h5 class="mb-0" data-key="mail_us_value"><a href="mailto:support@yourmail.com">support@yourmail.com</a></h5>
                         </div>
                     </div>
                 </div>
@@ -285,7 +285,42 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
+         const translations = {
+            en: {
+                address_label: "Address",
+                address_value: "No. 88, Sec. 4, Tingchou Rd., Taipei 11677, Taiwan (R.O.C.)",
+                call_us_label: "Phone Number",
+                call_us_value: "(+886)2-7749-6724",
+                mail_us_label: "Mail Us",
+                mail_us_value: "support@yourmail.com",
+                mail_us_value_link: "mailto:support@yourmail.com"
+            },
+            zh: {
+                address_label: "地址",
+                address_value: "台北市文山區汀州路四段88號應用科學大樓三樓光電所???室",
+                call_us_label: "連絡電話",
+                call_us_value: "(+886)2-7749-6724",
+                mail_us_label: "電子郵件",
+                mail_us_value: "support@yourmail.com",
+                mail_us_value_link: "mailto:support@yourmail.com"
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                element.textContent = translations[lang][key];
+                if (element.tagName === 'A' && element.hasAttribute('href')) {
+                    element.setAttribute('href', translations[lang][key + '_link']);
+                }
+            });
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
+            const userLang = navigator.language || navigator.userLanguage;
+            switchLanguage(userLang.startsWith('zh') ? 'zh' : 'en');
+
             fetch('./data/adress.json')
             .then(response => {
                 if (!response.ok) {
