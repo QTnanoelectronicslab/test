@@ -285,7 +285,7 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
-        $(document).ready(function () {
+        document.addEventListener("DOMContentLoaded", function() {
             fetch('./data/adress.json')
             .then(response => {
                 if (!response.ok) {
