@@ -57,9 +57,9 @@
                 <a href="appointment.html" class="nav-item nav-link">Appointment</a>
                 <a href="testimonial.html" class="nav-item nav-link">Testimonial</a>
                 <a href="404.html" class="nav-item nav-link">404 Page</a>
-                <a href="contact.html" class="nav-item nav-link active">Contact</a>
+                <a href="contact.html" class="nav-item nav-link active" data-key="Contact_label">Contact</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Language</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-key="Language_label">Language</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
                         <a href="contact.html?lang=en" class="dropdown-item lang-drop">English(en)</a>
                         <a href="contact.html?lang=zh" class="dropdown-item lang-drop">繁體中文(zh)</a>
@@ -113,11 +113,11 @@
                 <div class="col-lg-4">
                     <div class="h-100 bg-light rounded d-flex align-items-center p-5">
                         <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white" style="width: 55px; height: 55px;">
-                            <i class="fa fa-envelope-open text-primary"></i>
+                            <i class="fa fa-envelope-open text-primary"><a href="mailto:support@yourmail.com"></a></i>
                         </div>
                         <div class="ms-4">
                             <p class="mb-2" data-key="mail_label"></p>
-                            <h5 class="mb-0" data-key="mail_value"><a href="mailto:support@yourmail.com"></a></h5>
+                            <h5 class="mb-0" data-key="mail_value"></h5>
                         </div>
                     </div>
                 </div>
@@ -206,6 +206,8 @@
     <script>
          const translations = {
             en: {
+                Contact_label: "Contact",
+                Language_label: "Language",
                 header_label: "Contact Us",
                 page_label:"HOME",
                 path_label:"CONTACT",
@@ -215,9 +217,10 @@
                 phone_value: "(+886)2-7749-6724",
                 mail_label: "Mail Us",
                 mail_value: "support@yourmail.com",
-                mail_value_link: "mailto:support@yourmail.com"
             },
             zh: {
+                Contact_label: "連絡資訊",
+                Language_label: "切換語系",
                 header_label: "連絡我們",
                 page_label:"首頁",
                 path_label:"連絡資訊",
@@ -227,7 +230,6 @@
                 phone_value: "(+886)2-7749-6724",
                 mail_label: "電子郵件",
                 mail_value: "support@yourmail.com",
-                mail_value_link: "mailto:support@yourmail.com"
             }
         };
 
@@ -236,9 +238,6 @@
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
                 element.textContent = translations[lang][key];
-                if (element.tagName === 'A' && element.hasAttribute('href')) {
-                    element.setAttribute('href', translations[lang][key + '_link']);
-                }
             });
             document.querySelectorAll('.lang-drop').forEach(item => {
                 if (item.href.includes(`lang=${lang}`)) {
