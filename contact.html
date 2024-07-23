@@ -52,19 +52,14 @@
                 <a href="index.html" class="nav-item nav-link">Home</a>
                 <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="service.html" class="nav-item nav-link">Service</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <a href="feature.html" class="dropdown-item">Feature</a>
-                        <a href="team.html" class="dropdown-item">Our Doctor</a>
-                        <a href="appointment.html" class="dropdown-item">Appointment</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
+                <a href="feature.html" class="nav-item nav-link">Feature</a>
+                <a href="team.html" class="nav-item nav-link">Our Doctor</a>
+                <a href="appointment.html" class="nav-item nav-link">Appointment</a>
+                <a href="testimonial.html" class="nav-item nav-link">Testimonial</a>
+                <a href="404.html" class="nav-item nav-link">404 Page</a>
                 <a href="contact.html" class="nav-item nav-link active">Contact</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Language</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Language</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
                         <a href="#" class="dropdown-item lang-drop" onclick="switchLanguage('en')">English(en)</a>
                         <a href="#" class="dropdown-item lang-drop" onclick="switchLanguage('zh')">繁體中文(zh)</a>
@@ -78,12 +73,11 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Contact Us</h1>
+            <h1 class="display-3 text-white mb-3 animated slideInDown" data-key="header_label"></h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb text-uppercase mb-0">
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page">Contact</li>
+                    <li class="breadcrumb-item"><a class="text-white" href="#" data-key="page_label"></a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page" data-key="path_label"></li>
                 </ol>
             </nav>
         </div>
@@ -100,8 +94,8 @@
                             <i class="fa fa-map-marker-alt text-primary"></i>
                         </div>
                         <div class="ms-4">
-                            <p class="mb-2" data-key="address_label">Address</p>
-                            <h5 class="mb-0" data-key="address_value">123 Street, New York, USA</h5>
+                            <p class="mb-2" data-key="address_label"></p>
+                            <h5 class="mb-0" data-key="address_value"></h5>
                         </div>
                     </div>
                 </div>
@@ -111,8 +105,8 @@
                             <i class="fa fa-phone-alt text-primary"></i>
                         </div>
                         <div class="ms-4">
-                            <p class="mb-2" data-key="call_us_label">Call Us Now</p>
-                            <h5 class="mb-0" data-key="call_us_value">+012 345 6789</h5>
+                            <p class="mb-2" data-key="call_us_label"></p>
+                            <h5 class="mb-0" data-key="call_us_value"></h5>
                         </div>
                     </div>
                 </div>
@@ -122,8 +116,8 @@
                             <i class="fa fa-envelope-open text-primary"></i>
                         </div>
                         <div class="ms-4">
-                            <p class="mb-2" data-key="mail_us_label">Mail Us Now</p>
-                            <h5 class="mb-0" data-key="mail_us_value"><a href="mailto:support@yourmail.com">support@yourmail.com</a></h5>
+                            <p class="mb-2" data-key="mail_us_label"></p>
+                            <h5 class="mb-0" data-key="mail_us_value"><a href="mailto:support@yourmail.com"></a></h5>
                         </div>
                     </div>
                 </div>
@@ -214,6 +208,9 @@
     <script>
          const translations = {
             en: {
+                header_label: "Contact Us",
+                page_label:"HOME",
+                path_label:"CONTACT",
                 address_label: "Address",
                 address_value: "No. 88, Sec. 4, Tingchou Rd., Taipei 11677, Taiwan (R.O.C.)",
                 call_us_label: "Phone Number",
@@ -223,6 +220,9 @@
                 mail_us_value_link: "mailto:support@yourmail.com"
             },
             zh: {
+                header_label: "連絡我們",
+                page_label:"首頁",
+                path_label:"連絡資訊",
                 address_label: "地址",
                 address_value: "台北市文山區汀州路四段88號應用科學大樓三樓光電所???室",
                 call_us_label: "連絡電話",
@@ -252,9 +252,17 @@
             });
         }
 
+        
+
         document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const langFromUrl = urlParams.get('lang');
+
             const userLang = navigator.language || navigator.userLanguage;
-            switchLanguage(userLang.startsWith('zh') ? 'zh' : 'en');
+            const lang = langFromUrl || (userLang.startsWith('zh') ? 'zh' : 'en');
+            switchLanguage(lang);
+            // const userLang = navigator.language || navigator.userLanguage;
+            // switchLanguage(userLang.startsWith('zh') ? 'zh' : 'en');
 
             fetch('./data/adress.json')
             .then(response => {
