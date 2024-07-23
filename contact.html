@@ -66,8 +66,8 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Language</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <a href="#" class="dropdown-item" onclick="switchLanguage('en')">English(en)</a>
-                        <a href="#" class="dropdown-item active" onclick="switchLanguage('zh')">繁體中文(zh)</a>
+                        <a href="#" class="dropdown-item lang-drop" onclick="switchLanguage('en')">English(en)</a>
+                        <a href="#" class="dropdown-item lang-drop" onclick="switchLanguage('zh')">繁體中文(zh)</a>
                     </div>
                 </div>
             </div>
@@ -243,7 +243,7 @@
                 }
             });
             // 更新active class
-            document.querySelectorAll('.dropdown-item').forEach(item => {
+            document.querySelectorAll('.lang-drop').forEach(item => {
                 if (item.onclick.toString().includes(`switchLanguage('${lang}')`)) {
                     item.classList.add('active');
                 } else {
