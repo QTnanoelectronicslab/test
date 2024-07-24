@@ -99,8 +99,9 @@
 
 function fn_getLanguage() {
     const _lang = localStorage.getItem("lang");
-    const userLang = navigator.language || navigator.userLanguage;
-    const lang = _lang || (userLang.startsWith('zh') ? 'zh' : 'en');
+    //const userLang = navigator.language || navigator.userLanguage;
+    //const lang = _lang || (userLang.startsWith('zh') ? 'zh' : 'en');
+    const lang = _lang || 'en';
     return lang;
 }
 
