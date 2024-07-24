@@ -97,3 +97,75 @@
     
 })(jQuery);
 
+function fn_getLanguage() {
+    const _lang = localStorage.getItem("lang");
+    const userLang = navigator.language || navigator.userLanguage;
+    const lang = _lang || (userLang.startsWith('zh') ? 'zh' : 'en');
+    return lang;
+}
+
+function fn_setLanguage(lang) {
+    localStorage.setItem("lang", lang);
+    location.reload();
+}
+
+function fn_switchLanguage(transMap, lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-key]').forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (transMap[lang] && transMap[lang].hasOwnProperty(key)) {
+            element.textContent = transMap[lang][key];
+        }
+    });
+    document.querySelectorAll('.lang-drop').forEach(item => {
+        if (item.onclick.toString().includes(`fn_setLanguage('${lang}')`)) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
+}
+
+function fn_loadNavbar(lang) {
+    fetch('components/navbar.html')
+    .then(response => response.text())
+    .then(data => {
+        const container = document.getElementById('div_Navbar');
+        container.innerHTML = data;
+
+        const scripts = container.querySelectorAll('script');
+        scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) {
+                newScript.src = script.src;
+            } else {
+                newScript.text = script.innerHTML;
+            }
+            document.head.appendChild(newScript).parentNode.removeChild(newScript);
+        });
+
+        fn_switchLanguage(transNavbar, lang);
+    });
+}
+
+function fn_loadFooter(lang) {
+    fetch('components/footer.html')
+    .then(response => response.text())
+    .then(data => {
+        const container = document.getElementById('div_footer');
+        container.innerHTML = data;
+
+        const scripts = container.querySelectorAll('script');
+        scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) {
+                newScript.src = script.src;
+            } else {
+                newScript.text = script.innerHTML;
+            }
+            document.head.appendChild(newScript).parentNode.removeChild(newScript);
+        });
+
+        fn_switchLanguage(transFooter, lang);
+    });
+}

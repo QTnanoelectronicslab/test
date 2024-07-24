@@ -40,40 +40,7 @@
     <!-- Spinner End -->
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h1 class="m-0 text-primary"><i class="far fa-hospital me-3"></i>Klinik</h1>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="about.html" class="nav-item nav-link" data-key="About_label">About</a>
-                <a href="about.html" class="nav-item nav-link" data-key="Supervisor_label">Supervisor</a>
-                <a href="about.html" class="nav-item nav-link" data-key="Member_label">Members</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-key="Info_label">Info</a>
-                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <a href="feature.html" class="dropdown-item">Feature</a>
-                        <a href="team.html" class="dropdown-item active">Our Doctor</a>
-                        <a href="appointment.html" class="dropdown-item">Appointment</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
-                <a href="about.html" class="nav-item nav-link" data-key="News_label">News</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-key="Language_label">Language</a>
-                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <a href="#" class="dropdown-item lang-drop" onclick="setLanguage('zh')">繁體中文</a>
-                        <a href="#" class="dropdown-item lang-drop" onclick="setLanguage('en')">English</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block"><span data-key="Contact_label">Contact</span><i class="fa fa-arrow-right ms-3"></i></a>
-            </div>
-        </div>
-    </nav>
+     <div id="div_Navbar"></div>
     <!-- Navbar End -->
 
     <!-- Page Header Start -->
@@ -82,8 +49,9 @@
             <h1 class="display-3 text-white mb-3 animated slideInDown" data-key="header_label"></h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb text-uppercase mb-0">
-                    <li class="breadcrumb-item"><a class="text-white" href="#" data-key="page_label"></a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page" data-key="path_label"></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Page</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">Contact</li>
                 </ol>
             </nav>
         </div>
@@ -140,59 +108,7 @@
     <!-- Contact End -->
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4" data-key="address_label"></h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i><span data-key="address_value">123 Street, New York, USA</span></p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><span data-key="phone_value">+012 345 67890</span></p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i><span data-key="mail_value">info@example.com</span></p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Services</h5>
-                    <a class="btn btn-link" href="">Cardiology</a>
-                    <a class="btn btn-link" href="">Pulmonary</a>
-                    <a class="btn btn-link" href="">Neurology</a>
-                    <a class="btn btn-link" href="">Orthopedics</a>
-                    <a class="btn btn-link" href="">Laboratory</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Newsletter</h5>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Qtnanoelectronicslab</a>, All Right Reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">Designed By <a class="border-bottom" href="https://github.com/TimLinTW">TimLinTW</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="div_footer"></div>
     <!-- Footer End -->
 
     <!-- JavaScript Libraries -->
@@ -206,80 +122,13 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
-         const translations = {
-            en: {
-                About_label: "About",
-                News_label: "News",
-                Supervisor_label: "Supervisor",
-                Member_label: "Members",
-                Info_label: "Info",
-                Contact_label: "Contact Us",
-                Language_label: "Language",
+        $(document).ready(function () {
+            const lang = fn_getLanguage();
 
-                header_label: "Contact Us",
-                page_label:"HOME",
-                path_label:"CONTACT",
-                address_label: "Address",
-                address_value: "No. 88, Sec. 4, Tingchou Rd., Taipei 11677, Taiwan (R.O.C.)",
-                phone_label: "Phone Number",
-                phone_value: "(+886)2-7749-6724",
-                mail_label: "Mail Us",
-                mail_value: "support@yourmail.com",
-            },
-            zh: {
-                About_label: "關於我們",
-                News_label: "新消息",
-                Supervisor_label: "指導教授",
-                Member_label: "團隊成員",
-                Info_label: "參考資訊",
-                Contact_label: "連絡我們",
-                Language_label: "切換語系",
-
-                header_label: "連絡我們",
-                page_label:"首頁",
-                path_label:"連絡資訊",
-                address_label: "地址",
-                address_value: "台北市文山區汀州路四段88號應用科學大樓三樓光電所???室",
-                phone_label: "連絡電話",
-                phone_value: "(+886)2-7749-6724",
-                mail_label: "電子郵件",
-                mail_value: "support@yourmail.com",
-            }
-        };
-
-        function setLanguage(lang) {
-            localStorage.setItem("lang", lang);
-            window.location="contact.html"
-        }
-
-        function switchLanguage(lang) {
-            document.documentElement.lang = lang;
-            document.querySelectorAll('[data-key]').forEach(element => {
-                const key = element.getAttribute('data-key');
-                //ui lang
-                element.textContent = translations[lang][key];
-                //data lang
-                //...
-            });
-            document.querySelectorAll('.lang-drop').forEach(item => {
-                if (item.onclick.toString().includes(`setLanguage('${lang}')`)) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const _lang = localStorage.getItem("lang");
-
-            const userLang = navigator.language || navigator.userLanguage;
-            const lang = _lang || (userLang.startsWith('zh') ? 'zh' : 'en');
-            switchLanguage(lang);
+            fn_loadNavbar(lang);
+            fn_loadFooter(lang);
 
             fetch('./data/adress.json')
             .then(response => {
@@ -294,6 +143,7 @@
             .catch(error => {
                 console.error('There has been a problem with your fetch operation:', error);
             });
+
         });
     </script>
 </body>
